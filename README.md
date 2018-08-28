@@ -135,4 +135,4 @@ O status canceled tem conexão com todos status.
 
 ## Suporte da API
 
-Caso tenha mais dúvidas ou esteja com problemas na integração, mande um e-mail para *devs@courrierossp.com*
+Caso tenha dúvidas ou esteja com problemas na integração, mande um e-mail para *devs@courrierossp.com*
