@@ -2,7 +2,7 @@
 
 Documentação para uso dos endpoints da API.
 
-Endereço de acesso: [https://magrela-api.courrieros.com.br](https://magrela-api.courrieros.com.br)
+Endereço de acesso: [https://api.courrieros.com.br](https://api.courrieros.com.br)
 
 ## Autenticação
 
@@ -19,7 +19,7 @@ culr -X GET https://magrela-api.courrieros.com.br/  -H 'x-api-key: key-abc-123'
 
 * **URL**
 
-`/orders/{id}/status`
+`/api/orders/{id}/status`
 
 * **Method**
 
@@ -33,6 +33,15 @@ culr -X GET https://magrela-api.courrieros.com.br/  -H 'x-api-key: key-abc-123'
     |------------|--------------|------------------------------|-------------|-------------------|------------------------------|
     | status     | String       | Status atual da entrega      | sim         | Received          | Received                     | 
     | updateTime | String       | Data da ocorrencia do status | sim         | 2018-08-22 08:59Z | 2018-08-22 08:59Z            | 
+    
+* **Json**
+	
+    ```
+    {
+    	"status":"Received",
+        "eventDate":"2018-08-22 08:59Z"
+    }
+	```
 
 * **Retorno**
 
@@ -50,6 +59,15 @@ culr -X GET https://magrela-api.courrieros.com.br/  -H 'x-api-key: key-abc-123'
     | status     | String       | Status atual da entrega      | sim         | EnRoute           | EnRoute                      | 
     | updateTime | String       | Data da ocorrencia do status | sim         | 2018-08-22 08:59Z | 2018-08-22 08:59Z            |
     
+* **Json**
+	
+    ```
+    {
+    	"status":"EnRoute",
+        "eventDate":"2018-08-22 08:59Z"
+    }
+	```
+
 * **Retorno**
     
    **Status code:** 201 
@@ -68,7 +86,22 @@ culr -X GET https://magrela-api.courrieros.com.br/  -H 'x-api-key: key-abc-123'
      | relationship     | String       | Cargo do recebedor           | sim         | -                 | porteiro                     |        
      | updateTime       | String       | Data da ocorrencia do status | sim         | 2018-08-22 08:59Z | 2018-08-22 08:59Z            |
    
-* **Retorno**
+* **Json**
+	
+    ```
+    {
+    	"status":"Delivered",
+        "deliveredInfo":
+        {
+        	"receiverName":"João da Silva",
+            "receiverDocument":"123456789-00",
+            "relationship":"porteiro",
+        },
+        "eventDate":"2018-08-22 08:59Z"
+    }
+	```
+
+*  **Retorno**
     
     **Status code:** 201
     
@@ -94,7 +127,17 @@ culr -X GET https://magrela-api.courrieros.com.br/  -H 'x-api-key: key-abc-123'
      | status          | String       | Status atual da entrega        | sim         | NotDelivered       | NotDelivered                    |
      | reason          | String       | razão da entrega não realizada | sim         | NotDeliveredReason | AddressNotFound              |       
      | updateTime      | String       | Data da ocorrencia do status   | sim         | 2018-08-22 08:59Z  | 2018-08-22 08:59Z            |
-     
+
+* **Json**
+	
+    ```
+    {
+    	"status":"NotDelivered",
+        "reason":"AddressNotFound",
+        "eventDate":"2018-08-22 08:59Z"
+    }
+	```
+    
 * **Retorno**
     
     **Status code:** 201
@@ -108,6 +151,15 @@ culr -X GET https://magrela-api.courrieros.com.br/  -H 'x-api-key: key-abc-123'
      | status     | String       | Status atual da entrega      | sim         | Canceled          | Canceled                     | 
      | updateTime | String       | Data da ocorrencia do status | sim         | 2018-08-22 08:59Z | 2018-08-22 08:59Z            | 
 
+*  **Json**
+	
+    ```
+    {
+    	"status":"Canceled",
+        "eventDate":"2018-08-22 08:59Z"
+    }
+	```
+  
 * **Retorno**
     
     **Status code:** 201
@@ -121,6 +173,15 @@ culr -X GET https://magrela-api.courrieros.com.br/  -H 'x-api-key: key-abc-123'
      | status     | String       | Status atual da entrega      | sim         | Returned          | Returned                     | 
      | updateTime | String       | Data da ocorrencia do status | sim         | 2018-08-22 08:59Z | 2018-08-22 08:59Z            |
 
+* **Json**
+	
+    ```
+    {
+    	"status":"Returned",
+        "eventDate":"2018-08-22 08:59Z"
+    }
+	```
+  
 * **Retorno**
     
     **Status code:** 201
