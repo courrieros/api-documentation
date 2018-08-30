@@ -12,7 +12,7 @@ juntamente com o valor do token de acesso no cabeçalho HTTP de cada requisiçã
 Considerando o cenário de exemplo onde a chave de acesso possui o valor `key-abc-123`, segue a chamada para a cURL: 
 
 ```
-culr -X GET https://magrela-api.courrieros.com.br/  -H 'x-api-key: key-abc-123'
+culr -X GET https://api.courrieros.com.br/  -H 'x-api-key: key-abc-123'
 ```
 
 ## Envio de status
